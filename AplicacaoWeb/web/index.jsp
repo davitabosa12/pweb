@@ -8,27 +8,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Página de Login</title>
+        <title>Bem-vindo ao Ecommerce</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/materialize.css" type="text/css" rel="stylesheet"/>
+        <script type="text/javascript" src="js/materialize.js"></script>
     </head>
     <body>
-        <div>Identificação do Usuário</div>
-        <form action="LoginServlet" method="post">
-            <div>Login:</div>
-            <div><input type="text" name="login" /></div>
-            <div>Senha:</div>
-            <div><input type="password" name="senha" /></div>
-            <div><input type="submit" value="Enviar" /></div>
-        </form>
-        <div><a href="novoUsuario.jsp">Criar novo usuário</a></div>
-        <%
-            String mensagem = (String) request.getAttribute("mensagem");
-            if (mensagem != null) {
-        %>
-        <div><b><%= mensagem%></b></div>
-        <%
-            }
-        %>
+        <%@include file="WEB-INF/pages/navbar.jsp" %>
+        <section class="container">
+            <h3 class="center">Bem-vindo</h3>
+        </section>
     </body>
 </html>

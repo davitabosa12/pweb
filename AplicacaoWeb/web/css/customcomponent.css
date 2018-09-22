@@ -1,0 +1,7 @@
+.error_message {
+    background-color: #E53935;
+    color: white;
+    border: #e64a19 solid 1px;
+    border-radius: 20px;
+    padding: 5px;
+}

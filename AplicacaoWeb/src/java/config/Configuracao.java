@@ -15,7 +15,7 @@ public final class Configuracao {
         
 
     public static final String JDBC_URL = "jdbc:postgresql://localhost:5432/pweb1";
-    public static final String JDBC_USUARIO = "appweb";
+    public static final String JDBC_USUARIO = "teste"; //mudar para postgres quando estiver na UFC
     public static final String JDBC_SENHA = "ufc123";
 
     private Configuracao() {
