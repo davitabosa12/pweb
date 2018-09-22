@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import modelo.usuario.Usuario;
 import modelo.usuario.UsuarioNegocio;
 
 /**
@@ -45,11 +46,13 @@ public class LoginServlet extends HttpServlet {
         if (sucessoLogin) { // caso o login e senha estejam corretos
             HttpSession session = request.getSession(true); // cria e referencia a sessão do usuário
             session.setAttribute("login", login); // coloca o atributo login na sessão do usuário
+            Usuario u = usuarioNegocio.obterUsuarioPorLogin(login);
+            session.setAttribute("usuarioBean", u);
             RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/pages/principal.jsp"); // despacha a requisição para a página main.jsp, encaminhando as instância de request e response 
             rd.forward(request, response);
         } else {
-            request.setAttribute("mensagem", "Login ou senha incorreta"); // coloca uma mensagem no objeto request
-            RequestDispatcher rd = request.getRequestDispatcher("index.jsp"); // despacha a requisição para a página index.jsp, encaminhando as instância de request e response
+            request.setAttribute("error_message", "Login ou senha incorreta"); // coloca uma mensagem no objeto request
+            RequestDispatcher rd = request.getRequestDispatcher("login.jsp"); // despacha a requisição para a página index.jsp, encaminhando as instância de request e response
             rd.forward(request, response);
         }
     }

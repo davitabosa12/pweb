@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/aluno/Documentos/AplicacaoWeb/src/java/controle/usuario/VerUsuarioServlet.java</file>
-            <file>file:/home/aluno/Documentos/AplicacaoWeb/web/WEB-INF/pages/verUsuario.jsp</file>
-            <file>file:/home/aluno/Documentos/AplicacaoWeb/web/WEB-INF/pages/principal.jsp</file>
-            <file>file:/home/aluno/Documentos/AplicacaoWeb/src/java/controle/usuario/NovoUsuarioServlet.java</file>
-            <file>file:/home/aluno/Documentos/AplicacaoWeb/src/java/backup/script_ddl.sql</file>
-            <file>file:/home/aluno/Documentos/AplicacaoWeb/src/java/modelo/usuario/UsuarioNegocio.java</file>
+            <file>file:/C:/Users/Davi/Documents/NetBeansProjects/pweb/AplicacaoWeb/src/java/modelo/usuario/UsuarioDAO.java</file>
+            <file>file:/C:/Users/Davi/Documents/NetBeansProjects/pweb/AplicacaoWeb/src/java/config/Configuracao.java</file>
+            <file>file:/C:/Users/Davi/Documents/NetBeansProjects/pweb/AplicacaoWeb/src/java/backup/script_ddl.sql</file>
         </group>
     </open-files>
 </project-private>

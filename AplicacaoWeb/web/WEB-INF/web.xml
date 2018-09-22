@@ -16,6 +16,14 @@
         <servlet-name>VerUsuarioServlet</servlet-name>
         <servlet-class>controle.usuario.VerUsuarioServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NovoFuncionarioServlet</servlet-name>
+        <servlet-class>controle.funcionario.NovoFuncionarioServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VerFuncionarioServlet</servlet-name>
+        <servlet-class>controle.funcionario.VerFuncionarioServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -31,6 +39,14 @@
     <servlet-mapping>
         <servlet-name>VerUsuarioServlet</servlet-name>
         <url-pattern>/VerUsuarioServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NovoFuncionarioServlet</servlet-name>
+        <url-pattern>/NovoFuncionarioServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerFuncionarioServlet</servlet-name>
+        <url-pattern>/VerFuncionarioServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
