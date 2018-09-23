@@ -27,7 +27,7 @@
         <div class="container">
             <h4>Olá, <%= usuarioBean.getNome() %>!</h4>
             <div><a href="VerUsuarioServlet">Meus Dados</a></div>
-            <div><a href="">Cadastro de Funcionário</a></div>
+            <div><a href="novoFuncionario.jsp">Cadastro de Funcionário</a></div>
             <div><a href="">Cadastro de Produto</a></div>
             <div><a href="">Cadastro de Categoria</a></div>
             <div><a href="LogoutServlet">Sair</a></div>

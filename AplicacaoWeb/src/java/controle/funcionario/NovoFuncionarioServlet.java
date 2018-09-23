@@ -7,10 +7,12 @@ package controle.funcionario;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.funcionario.FuncionarioNegocio;
 
 /**
  *
@@ -30,18 +32,32 @@ public class NovoFuncionarioServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet NovoFuncionarioServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet NovoFuncionarioServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        String nome = (String) request.getParameter("nome");
+        String login = (String) request.getParameter("login");
+        String senha = (String) request.getParameter("senha");
+        double salario = Double.NaN;
+        String sal =(String) request.getParameter("salario");
+        try{
+            salario = Double.parseDouble(sal);        
+        } catch(Exception e){
+            RequestDispatcher rd = request.getRequestDispatcher("novoFuncionario.jsp");
+            request.setAttribute("error_message", "Salario deve ser um número: " + sal);
+            rd.forward(request, response);
+            return;
         }
+        
+        FuncionarioNegocio fn = new FuncionarioNegocio();
+        boolean sucesso = fn.inserir(nome, login, senha, salario);
+        if(sucesso){
+            RequestDispatcher rd = request.getRequestDispatcher("novoFuncionario.jsp");
+            request.setAttribute("toast_message", "Funcionario inserido com sucesso");
+            rd.forward(request, response);
+        } else {
+            RequestDispatcher rd = request.getRequestDispatcher("novoFuncionario.jsp");
+            request.setAttribute("error_message", "Não foi possível inserir este funcionario");
+            rd.forward(request, response);
+        }
+        
     }
 
     

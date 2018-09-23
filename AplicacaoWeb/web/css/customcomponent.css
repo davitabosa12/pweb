@@ -5,3 +5,11 @@
     border-radius: 20px;
     padding: 5px;
 }
+
+.ok_message {
+    background-color: #51c433;
+    color: white;
+    border: #2b651b solid 1px;
+    border-radius: 20px;
+    padding: 5px;
+}
