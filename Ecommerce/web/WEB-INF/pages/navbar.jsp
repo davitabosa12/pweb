@@ -7,7 +7,15 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <nav>
     <div class="nav-wrapper materialize-red">
-      <a href="#" class="brand-logo">Logo</a>
+      <% if(session.getAttribute("login") == null){%>
+            <a href="/Ecommerce" class="brand-logo">Ecommerce</a>
+    <%    
+         } else {
+    %>
+            <a href="PrincipalServlet" class="brand-logo">Ecommerce</a>
+    <%
+        }
+    %>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <% if(session.getAttribute("login") == null){%>
             <li><a href="login.jsp">Login</a></li>

@@ -2,16 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Davi/Documents/NetBeansProjects/pweb/AplicacaoWeb/src/java/controle/funcionario/NovoFuncionarioServlet.java</file>
-            <file>file:/C:/Users/Davi/Documents/NetBeansProjects/pweb/AplicacaoWeb/src/java/controle/usuario/LoginServlet.java</file>
-            <file>file:/C:/Users/Davi/Documents/NetBeansProjects/pweb/AplicacaoWeb/web/css/customcomponent.css</file>
-            <file>file:/C:/Users/Davi/Documents/NetBeansProjects/pweb/AplicacaoWeb/src/java/controle/usuario/VerUsuarioServlet.java</file>
-            <file>file:/C:/Users/Davi/Documents/NetBeansProjects/pweb/AplicacaoWeb/web/index.jsp</file>
-            <file>file:/C:/Users/Davi/Documents/NetBeansProjects/pweb/AplicacaoWeb/web/novoFuncionario.jsp</file>
-            <file>file:/C:/Users/Davi/Documents/NetBeansProjects/pweb/AplicacaoWeb/src/java/controle/usuario/NovoUsuarioServlet.java</file>
-            <file>file:/C:/Users/Davi/Documents/NetBeansProjects/pweb/AplicacaoWeb/web/WEB-INF/pages/principal.jsp</file>
-            <file>file:/C:/Users/Davi/Documents/NetBeansProjects/pweb/AplicacaoWeb/web/novoUsuario.jsp</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

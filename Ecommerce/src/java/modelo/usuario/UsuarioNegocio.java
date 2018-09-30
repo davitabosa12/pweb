@@ -5,6 +5,8 @@
  */
 package modelo.usuario;
 
+import java.util.List;
+
 /**
  *
  * @author Leonardo Oliveira Moreira
@@ -39,9 +41,25 @@ public class UsuarioNegocio {
         return dao.inserir(nome, login, senha);
     }
 
-    public Usuario obterUsuarioPorLogin(String login) {
+    public Usuario obterUsuario(String login) {
         UsuarioDAO dao = new UsuarioDAO();
         return dao.obterUsuario(login);
+    }
+
+    public boolean excluir(String login) {
+        UsuarioDAO dao = new UsuarioDAO();
+        return dao.excluir(login);
+    }
+
+    public boolean alterar(String nome, String login, String senha) {
+        UsuarioDAO dao = new UsuarioDAO();
+        return dao.alterar(nome, login, senha);
+    }
+    
+    public List<Usuario> obterTodos(){
+        UsuarioDAO dao = new UsuarioDAO();
+        return dao.obterTodos();
+        
     }
     
 }

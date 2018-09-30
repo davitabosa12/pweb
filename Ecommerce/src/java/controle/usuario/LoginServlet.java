@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        
         // entrada
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
@@ -46,9 +46,10 @@ public class LoginServlet extends HttpServlet {
         if (sucessoLogin) { // caso o login e senha estejam corretos
             HttpSession session = request.getSession(true); // cria e referencia a sessão do usuário
             session.setAttribute("login", login); // coloca o atributo login na sessão do usuário
-            Usuario u = usuarioNegocio.obterUsuarioPorLogin(login);
+            Usuario u = usuarioNegocio.obterUsuario(login);
             session.setAttribute("usuarioBean", u);
-            RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/pages/principal.jsp"); // despacha a requisição para a página main.jsp, encaminhando as instância de request e response 
+            //RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/pages/principal.jsp"); // despacha a requisição para a página main.jsp, encaminhando as instância de request e response 
+            RequestDispatcher rd = request.getRequestDispatcher("PrincipalServlet");
             rd.forward(request, response);
         } else {
             request.setAttribute("error_message", "Login ou senha incorreta"); // coloca uma mensagem no objeto request

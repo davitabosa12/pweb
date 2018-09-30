@@ -38,11 +38,16 @@ public class VerUsuarioServlet extends HttpServlet {
         
         String login = (String) session.getAttribute("login");
         UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
-        Usuario usuario = usuarioNegocio.obterUsuarioPorLogin(login);
-        System.out.println(usuario.getLogin());
-        request.setAttribute("usuarioBean", usuario);
-        RequestDispatcher rd= request.getRequestDispatcher("WEB-INF/pages/verUsuario.jsp");
-        rd.forward(request, response);
+        Usuario usuario = usuarioNegocio.obterUsuario(login);
+        if(usuario != null){
+            request.setAttribute("usuario", usuario);
+            RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/pages/verUsuario.jsp");
+            rd.forward(request, response);
+        } else {
+            request.setAttribute("error_message", "Você não possui um login válido");
+            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+            rd.forward(request, response);
+        }
         }
         catch (Exception e){
             RequestDispatcher rd= request.getRequestDispatcher("index.jsp");

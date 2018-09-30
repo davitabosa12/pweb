@@ -128,6 +128,7 @@ public class UsuarioDAO {
             preparedStatement.close();
             connection.close();
         } catch (Exception ex) {
+            ex.printStackTrace();
             return false;
         }
         return resultado;
