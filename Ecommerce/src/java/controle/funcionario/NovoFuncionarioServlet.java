@@ -31,32 +31,15 @@ public class NovoFuncionarioServlet extends HttpServlet {
      */
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        String nome = (String) request.getParameter("nome");
-        String login = (String) request.getParameter("login");
-        String senha = (String) request.getParameter("senha");
-        double salario = Double.NaN;
-        String sal =(String) request.getParameter("salario");
-        try{
-            salario = Double.parseDouble(sal);        
-        } catch(Exception e){
-            RequestDispatcher rd = request.getRequestDispatcher("novoFuncionario.jsp");
-            request.setAttribute("error_message", "Salario deve ser um número: " + sal);
+        //checar sessao
+        if(request.getSession(false) == null){
+            RequestDispatcher rd = request.getRequestDispatcher("/");
             rd.forward(request, response);
             return;
         }
+        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/pages/funcionario/novoFuncionario.jsp");
+        rd.forward(request, response);
         
-        FuncionarioNegocio fn = new FuncionarioNegocio();
-        boolean sucesso = fn.inserir(nome, login, senha, salario);
-        if(sucesso){
-            RequestDispatcher rd = request.getRequestDispatcher("novoFuncionario.jsp");
-            request.setAttribute("toast_message", "Funcionario inserido com sucesso");
-            rd.forward(request, response);
-        } else {
-            RequestDispatcher rd = request.getRequestDispatcher("novoFuncionario.jsp");
-            request.setAttribute("error_message", "Não foi possível inserir este funcionario");
-            rd.forward(request, response);
-        }
         
     }
 

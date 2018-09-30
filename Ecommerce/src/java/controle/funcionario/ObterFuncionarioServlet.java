@@ -3,24 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controle.usuario;
+package controle.funcionario;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.usuario.Usuario;
-import modelo.usuario.UsuarioNegocio;
+import modelo.funcionario.Funcionario;
+import modelo.funcionario.FuncionarioNegocio;
 
 /**
  *
  * @author Davi
  */
-public class ListarUsuarioServlet extends HttpServlet {
+public class ObterFuncionarioServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,11 +38,16 @@ public class ListarUsuarioServlet extends HttpServlet {
             rd.forward(request, response);
             return;
         }
-        UsuarioNegocio negocio = new UsuarioNegocio();
-        List<Usuario> usuarios = negocio.obterTodos();
         
-        request.setAttribute("lista_usuarios", usuarios);
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/usuario/listar.jsp");
+        String login = request.getParameter("login");
+        FuncionarioNegocio funcionarioNegocio = new FuncionarioNegocio();
+        Funcionario funcionario = funcionarioNegocio.obterFuncionario(login);
+        request.setAttribute("funcionario", funcionario);
+        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/pages/funcionario/alterar.jsp");
         rd.forward(request, response);
+        
     }
+
+    
+
 }

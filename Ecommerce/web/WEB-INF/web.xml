@@ -10,7 +10,7 @@
     </servlet>
     <servlet>
         <servlet-name>NovoUsuarioServlet</servlet-name>
-        <servlet-class>controle.usuario.NovoUsuarioServlet</servlet-class>
+        <servlet-class>controle.usuario.InserirUsuarioServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>VerUsuarioServlet</servlet-name>
@@ -49,12 +49,20 @@
         <servlet-class>controle.funcionario.AlterarFuncionarioServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ListarFuncionarioServlet</servlet-name>
+        <servlet-class>controle.funcionario.ListarFuncionarioServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ObterFuncionarioServlet</servlet-name>
+        <servlet-class>controle.funcionario.ObterFuncionarioServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>ExcluirFuncionarioServlet</servlet-name>
         <servlet-class>controle.funcionario.ExcluirFuncionarioServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ListarFuncionarioServlet</servlet-name>
-        <servlet-class>controle.funcionario.ListarFuncionarioServlet</servlet-class>
+        <servlet-name>InserirFuncionarioServlet</servlet-name>
+        <servlet-class>controle.funcionario.InserirFuncionarioServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -105,12 +113,20 @@
         <url-pattern>/AlterarFuncionarioServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>ListarFuncionarioServlet</servlet-name>
+        <url-pattern>/ListarFuncionarioServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ObterFuncionarioServlet</servlet-name>
+        <url-pattern>/ObterFuncionarioServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ExcluirFuncionarioServlet</servlet-name>
         <url-pattern>/ExcluirFuncionarioServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ListarFuncionarioServlet</servlet-name>
-        <url-pattern>/ListarFuncionarioServlet</url-pattern>
+        <servlet-name>InserirFuncionarioServlet</servlet-name>
+        <url-pattern>/InserirFuncionarioServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -31,6 +31,12 @@ public class ObterUsuarioServlet extends HttpServlet {
      */
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //checar sessao
+        if(request.getSession(false) == null){
+            RequestDispatcher rd = request.getRequestDispatcher("/");
+            rd.forward(request, response);
+            return;
+        }
         String login = request.getParameter("login");
         UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
         Usuario usuario = usuarioNegocio.obterUsuario(login);

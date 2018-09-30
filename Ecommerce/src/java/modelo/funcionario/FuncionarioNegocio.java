@@ -5,6 +5,8 @@
  */
 package modelo.funcionario;
 
+import java.util.List;
+
 /**
  *
  * @author Davi
@@ -23,9 +25,24 @@ public class FuncionarioNegocio {
         return dao.inserir(nome, login, senha, salario);
     }
 
-    public Funcionario obterFuncionarioPorLogin(String login) {
+    public Funcionario obterFuncionario(String login) {
         FuncionarioDAO dao = new FuncionarioDAO();
         return dao.obterFuncionario(login);
+    }
+
+    public List<Funcionario> obterTodos() {
+        FuncionarioDAO dao = new FuncionarioDAO();
+        return dao.obterTodos();
+    }
+
+    public boolean alterar(String nome, String login, String senha, double salario) {
+       FuncionarioDAO dao = new FuncionarioDAO();
+       return dao.alterar(login, nome, senha, salario);
+    }
+
+    public boolean excluir(String login) {
+        FuncionarioDAO dao = new FuncionarioDAO();
+        return dao.excluir(login);
     }
     
 }

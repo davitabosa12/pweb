@@ -21,7 +21,7 @@
         <title>Cadastro de Funcionario</title>
     </head>
     <body>
-        <%@include file="WEB-INF/pages/navbar.jsp" %>
+        <%@include file="/WEB-INF/pages/navbar.jsp" %>
         <div class="container">
             <div class="row">
                 <div class="col s12 center">

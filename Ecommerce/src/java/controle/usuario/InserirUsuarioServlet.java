@@ -19,7 +19,7 @@ import modelo.usuario.UsuarioNegocio;
  * 
  * Classe que representa a ação de cadastrar um novo usuário
  */
-public class NovoUsuarioServlet extends HttpServlet {
+public class InserirUsuarioServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
