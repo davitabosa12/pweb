@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package controle.categoria;
+package controle.produto;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,13 +13,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.categoria.CategoriaNegocio;
+import modelo.produto.ProdutoNegocio;
 
 /**
  *
  * @author Davi
  */
-public class AlterarCategoriaServlet extends HttpServlet {
+public class AlterarProdutoServlet extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -29,8 +29,7 @@ public class AlterarCategoriaServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void service(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
+        throws ServletException, IOException {
         if(request.getSession(false) == null){
             RequestDispatcher rd = request.getRequestDispatcher("/");
             rd.forward(request, response);
@@ -38,16 +37,17 @@ public class AlterarCategoriaServlet extends HttpServlet {
         }
         int id = Integer.parseInt(request.getParameter("id"));
         String desc = request.getParameter("descricao");
-        
-        CategoriaNegocio negocio = new CategoriaNegocio();
-        boolean sucesso = negocio.alterar(id,desc);
+        double preco = Double.parseDouble(request.getParameter("preco"));
+        int categoriaId = Integer.parseInt(request.getParameter("categoria_id"));
+        ProdutoNegocio negocio = new ProdutoNegocio();
+        boolean sucesso = negocio.alterar(id,desc,preco,categoriaId);
         if(sucesso){
-            request.setAttribute("success_message", "Categoria inserida com sucesso!");
+            request.setAttribute("success_message", "Produto inserido com sucesso!");
         } else {
-            request.setAttribute("error_message", "Não foi possível alterar esta categoria");
+            request.setAttribute("error_message", "Não foi possível alterar este produto");
         }
         
-        RequestDispatcher rd = request.getRequestDispatcher("ObterCategoriaServlet?id=" + id);
+        RequestDispatcher rd = request.getRequestDispatcher("ObterProdutoServlet?id=" + id);
         rd.forward(request, response);
     }
 }

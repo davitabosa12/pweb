@@ -8,10 +8,14 @@ package controle.categoria;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.categoria.Categoria;
+import modelo.categoria.CategoriaNegocio;
 
 /**
  *
@@ -28,6 +32,17 @@ public class ListarCategoriaServlet extends HttpServlet {
      */
     protected void service(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
+        //checar sessao
+        if(request.getSession(false) == null){
+            RequestDispatcher rd = request.getRequestDispatcher("/");
+            rd.forward(request, response);
+            return;
+        }
+        CategoriaNegocio negocio = new CategoriaNegocio();
+        List<Categoria> categorias = negocio.obterTodos();
         
+        request.setAttribute("lista_categorias", categorias);
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/categoria/listar.jsp");
+        rd.forward(request, response);
     }
 }

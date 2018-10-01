@@ -42,9 +42,9 @@ public class ExcluirFuncionarioServlet extends HttpServlet {
         boolean success = f.excluir(login);
         
         if(success){
-            request.setAttribute("success_message", "Usuário " + login + " excluído com sucesso!");
+            request.setAttribute("success_message", "Funcionário " + login + " excluído com sucesso!");
         } else {
-            request.setAttribute("error_message", "Não foi possível excluir este usuário");
+            request.setAttribute("error_message", "Não foi possível excluir este funcionário");
         }
         RequestDispatcher rd = request.getRequestDispatcher("ListarFuncionarioServlet");
         rd.forward(request, response);

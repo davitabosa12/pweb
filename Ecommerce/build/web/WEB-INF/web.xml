@@ -88,6 +88,30 @@
         <servlet-name>ObterCategoriaServlet</servlet-name>
         <servlet-class>controle.categoria.ObterCategoriaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AlterarProdutoServlet</servlet-name>
+        <servlet-class>controle.produto.AlterarProdutoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirProdutoServlet</servlet-name>
+        <servlet-class>controle.produto.ExcluirProdutoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InserirProdutoServlet</servlet-name>
+        <servlet-class>controle.produto.InserirProdutoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListarProdutoServlet</servlet-name>
+        <servlet-class>controle.produto.ListarProdutoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NovoProdutoServlet</servlet-name>
+        <servlet-class>controle.produto.NovoProdutoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ObterProdutoServlet</servlet-name>
+        <servlet-class>controle.produto.ObterProdutoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -175,6 +199,30 @@
     <servlet-mapping>
         <servlet-name>ObterCategoriaServlet</servlet-name>
         <url-pattern>/ObterCategoriaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarProdutoServlet</servlet-name>
+        <url-pattern>/AlterarProdutoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirProdutoServlet</servlet-name>
+        <url-pattern>/ExcluirProdutoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InserirProdutoServlet</servlet-name>
+        <url-pattern>/InserirProdutoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarProdutoServlet</servlet-name>
+        <url-pattern>/ListarProdutoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NovoProdutoServlet</servlet-name>
+        <url-pattern>/NovoProdutoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ObterProdutoServlet</servlet-name>
+        <url-pattern>/ObterProdutoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

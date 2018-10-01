@@ -24,8 +24,8 @@ public class CategoriaNegocio {
         return dao.excluir(id);
     }
 
-    public boolean inserir(int id, String descricao) {
-        return dao.inserir(id, descricao);
+    public boolean inserir(String descricao) {
+        return dao.inserir(descricao);
     }
 
     public Categoria obter(int id) {

@@ -30,6 +30,13 @@ public class InserirFuncionarioServlet extends HttpServlet {
      */
     protected void service(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
+        
+        if(request.getSession(false) == null){
+            RequestDispatcher rd = request.getRequestDispatcher("/");
+            rd.forward(request, response);
+            return;
+        }
+        
         response.setContentType("text/html;charset=UTF-8");
         String nome = (String) request.getParameter("nome");
         String login = (String) request.getParameter("login");

@@ -3,31 +3,54 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controle.categoria;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.categoria.CategoriaNegocio;
 
 /**
  *
  * @author Davi
  */
 public class InserirCategoriaServlet extends HttpServlet {
-   
-    /** 
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
+
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
     protected void service(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
-        
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+
+        if (request.getSession(false) == null) {
+            RequestDispatcher rd = request.getRequestDispatcher("/");
+            rd.forward(request, response);
+            return;
+        }
+
+        String descricao = (String) request.getParameter("descricao");
+
+        CategoriaNegocio negocio = new CategoriaNegocio();
+        boolean sucesso = negocio.inserir(descricao);
+        if (sucesso) {
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/categoria/novaCategoria.jsp");
+            request.setAttribute("success_message", "Categoria inserido com sucesso");
+            rd.forward(request, response);
+        } else {
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/categoria/novaCategoria.jsp");
+            request.setAttribute("error_message", "Não foi possível inserir este categoria");
+            rd.forward(request, response);
+        }
     }
 }

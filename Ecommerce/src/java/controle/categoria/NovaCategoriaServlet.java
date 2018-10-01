@@ -8,6 +8,7 @@ package controle.categoria;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,7 +28,13 @@ public class NovaCategoriaServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void service(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
-        
+            throws ServletException, IOException {
+        if(request.getSession(false) == null){
+            RequestDispatcher rd = request.getRequestDispatcher("/");
+            rd.forward(request, response);
+            return;
+        }
+        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/pages/categoria/novaCategoria.jsp");
+        rd.forward(request, response);
     }
 }
