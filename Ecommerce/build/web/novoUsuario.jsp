@@ -9,10 +9,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <%@include file="WEB-INF/pages/layout.jsp" %>
         <title>Cadastro de novo usuário</title>
     </head>
     <body>
-        <h1>Novo usuário</h1>
+        <%@include file="WEB-INF/pages/navbar.jsp" %>
+        <div class="container">
+            <h1>Novo usuário</h1>
+            <%@include file="WEB-INF/pages/message.jsp" %>
         <form action="NovoUsuarioServlet" method="post">
             <div>Nome:</div>
             <div><input type="text" name="nome" /></div>
@@ -22,13 +26,8 @@
             <div><input type="password" name="senha" /></div>
             <div><input type="submit" value="Salvar" /></div>
         </form>
-        <%
-            String mensagem = (String) request.getAttribute("mensagem");
-            if (mensagem != null) {
-        %>
-        <div><b><%= mensagem%></b></div>
-        <%
-            }
-        %>
+        
+        </div>
+        
     </body>
 </html>

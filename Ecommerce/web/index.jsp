@@ -10,13 +10,12 @@
     <head>
         <title>Bem-vindo ao Ecommerce</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/materialize.css" type="text/css" rel="stylesheet"/>
-        <script type="text/javascript" src="js/materialize.js"></script>
+        <%@include file="WEB-INF/pages/layout.jsp" %>
     </head>
     <body>
         <%@include file="WEB-INF/pages/navbar.jsp" %>
         <section class="container">
+            <%@include file="WEB-INF/pages/message.jsp" %>
             <h3 class="center">Bem-vindo</h3>
         </section>
     </body>
