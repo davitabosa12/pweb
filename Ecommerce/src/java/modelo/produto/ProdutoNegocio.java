@@ -20,12 +20,12 @@ public class ProdutoNegocio {
     
     
 
-    public boolean inserir(String descricao, double preco, int categoriaId) {
-        return dao.inserir(descricao, preco, categoriaId);
+    public boolean inserir(String descricao, double preco, int categoriaId, String img) {
+        return dao.inserir(descricao, preco, categoriaId, img);
     }
 
-    public boolean alterar(int id, String descricao, double preco, int categoriaId) {
-        return dao.alterar(id, descricao, preco, categoriaId);
+    public boolean alterar(int id, String descricao, double preco, int categoriaId, String img) {
+        return dao.alterar(id, descricao, preco, categoriaId, img);
     }
 
     public boolean excluir(int id) {

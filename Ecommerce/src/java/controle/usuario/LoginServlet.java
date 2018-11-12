@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
             Usuario u = usuarioNegocio.obterUsuario(login);
             session.setAttribute("usuarioBean", u);
             //RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/pages/principal.jsp"); // despacha a requisição para a página main.jsp, encaminhando as instância de request e response 
-            RequestDispatcher rd = request.getRequestDispatcher("PrincipalServlet");
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
             rd.forward(request, response);
         } else {
             request.setAttribute("error_message", "Login ou senha incorreta"); // coloca uma mensagem no objeto request

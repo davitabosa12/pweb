@@ -42,7 +42,7 @@ public class ObterProdutoServlet extends HttpServlet {
         ProdutoNegocio negocio = new ProdutoNegocio();
         Produto prod = negocio.obter(id);
         request.setAttribute("produto", prod);
-        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/pages/produto/alterar.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/produto/alterar.jsp");
         rd.forward(request, response);
     }
 }

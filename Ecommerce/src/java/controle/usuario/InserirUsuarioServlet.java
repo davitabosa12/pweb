@@ -41,11 +41,11 @@ public class InserirUsuarioServlet extends HttpServlet {
         boolean sucessoInserir = usuarioNegocio.inserir(nome, login, senha);
         // saída
         if (sucessoInserir) {
-            request.setAttribute("success_message", "Usuário inserido com sucesso");
+            request.setAttribute("mensagem", "Usuário inserido com sucesso");
             RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
             rd.forward(request, response);
         } else {
-            request.setAttribute("error_message", "Não foi possível inserir este usuário");
+            request.setAttribute("mensagem", "Não foi possível inserir este usuário");
             RequestDispatcher rd = request.getRequestDispatcher("novoUsuario.jsp");
             rd.forward(request, response);
         }

@@ -14,6 +14,15 @@ public class Produto {
     private int categoriaId;    
     private String descricao;
     private double preco;
+    private String imgPath;
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
+    }
 
     public Produto() {
        

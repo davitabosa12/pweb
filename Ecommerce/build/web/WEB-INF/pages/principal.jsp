@@ -19,14 +19,15 @@
     <body>
         <%@include file="navbar.jsp" %>
         <jsp:useBean id= "usuarioBean" class = "modelo.usuario.Usuario" scope="session"/>
+        <jsp:useBean id= "funcionarioBean" class= "modelo.funcionario.Funcionario" scope="session"/>
         <div class="container">
-            <h4>Olá, <%= usuarioBean.getNome() %>!</h4>
-            <div><a href="VerUsuarioServlet">Meus Dados</a></div>
+            <h4>Olá, <%= funcionarioBean.getNome() %>!</h4>
+            <div><a href="VerFuncionarioServlet">Meus Dados</a></div>
             <div><a href="ListarUsuarioServlet">Ver Usuários</a></div>
             <div><a href="ListarFuncionarioServlet">Ver Funcionários</a></div>
             <div><a href="ListarProdutoServlet">Ver Produtos</a></div>
             <div><a href="ListarCategoriaServlet">Ver Categoria</a></div>
-            <div><a href="LogoutServlet">Sair</a></div>
+            <div><a href="../LogoutServlet">Sair</a></div>
         </div>
         
         
