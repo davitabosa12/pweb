@@ -17,13 +17,16 @@
         }
     %>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/Ecommerce/VerCarrinhoComprasServlet"><i class="material-icons left">shopping_cart</i>(9)</a></li>
         <% if(session.getAttribute("login") == null){%>
             <li><a href="./login.jsp">Login</a></li>
+            <li><a href="novoUsuario.jsp">Cadastro</a></li>
         <% } else { %>
             <li><a href="/Ecommerce/LogoutServlet">Logout</a></li>
+            
         <% } %>
             
-        <li><a href="novoUsuario.jsp">Cadastro</a></li>
+        
         
         
       </ul>

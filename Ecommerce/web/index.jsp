@@ -13,6 +13,7 @@
     <head>
         <title>Bem-vindo ao Ecommerce</title>
         <meta charset="UTF-8">
+        <%@include file="WEB-INF/pages/layout.jsp" %>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/materialize.css" type="text/css" rel="stylesheet"/>
         <script type="text/javascript" src="js/materialize.js"></script>
@@ -23,6 +24,7 @@
         %>
         <%@include file="WEB-INF/pages/navbar.jsp" %>
         <section class="container">
+            <%@include file="WEB-INF/pages/message.jsp" %>
             <h3 class="center">Bem-vindo</h3>
             <div class="row"id="produtos">
                 <% for (Produto p : produtos) {%>
@@ -37,7 +39,8 @@
                             <p>R$ <%= p.getPreco()%></p>
                         </div>
                         <div class="card-action">
-                            <a href="#">Comprar</a>
+                            <a href="/Ecommerce/ConfirmarItemCarrinho?produto_id=<%= p.getId()%>"
+                               >Comprar</a>
                         </div>
                     </div>
                 </div>

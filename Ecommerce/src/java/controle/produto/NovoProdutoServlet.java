@@ -34,7 +34,7 @@ public class NovoProdutoServlet extends HttpServlet {
             rd.forward(request, response);
             return;
         }
-        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/pages/produto/novoProduto.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/produto/novoProduto.jsp");
         rd.forward(request, response);
     }
 }

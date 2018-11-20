@@ -34,7 +34,7 @@ public class NovaCategoriaServlet extends HttpServlet {
             rd.forward(request, response);
             return;
         }
-        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/pages/categoria/novaCategoria.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/categoria/novaCategoria.jsp");
         rd.forward(request, response);
     }
 }

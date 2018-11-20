@@ -4,6 +4,16 @@
         <filter-name>FuncionarioLogadoFilter</filter-name>
         <filter-class>filtros.FuncionarioLogadoFilter</filter-class>
     </filter>
+    <filter>
+        <filter-name>UsuarioLogadoFIlter</filter-name>
+        <filter-class>filtros.UsuarioLogadoFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>UsuarioLogadoFIlter</filter-name>
+        <url-pattern>/usuario/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
     <filter-mapping>
         <filter-name>FuncionarioLogadoFilter</filter-name>
         <url-pattern>/funcionario/*</url-pattern>
@@ -125,6 +135,30 @@
         <servlet-name>LoginFuncionarioServlet</servlet-name>
         <servlet-class>controle.funcionario.LoginFuncionarioServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FinalizarCompraServlet</servlet-name>
+        <servlet-class>controle.usuario.FinalizarCompraServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VerCarrinhoCompras</servlet-name>
+        <servlet-class>controle.usuario.VerCarrinhoCompras</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConfirmarItemCarrinho</servlet-name>
+        <servlet-class>controle.carrinho.ConfirmarItemCarrinho</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdicionarItemCarrinho</servlet-name>
+        <servlet-class>controle.carrinho.AdicionarItemCarrinho</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VerCarrinhoComprasServlet</servlet-name>
+        <servlet-class>controle.carrinho.VerCarrinhoComprasServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FinalizarVendaServlet</servlet-name>
+        <servlet-class>controle.carrinho.FinalizarVendaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -240,6 +274,30 @@
     <servlet-mapping>
         <servlet-name>LoginFuncionarioServlet</servlet-name>
         <url-pattern>/LoginFuncionarioServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FinalizarCompraServlet</servlet-name>
+        <url-pattern>/usuario/FinalizarCompraServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerCarrinhoCompras</servlet-name>
+        <url-pattern>/VerCarrinhoCompras</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConfirmarItemCarrinho</servlet-name>
+        <url-pattern>/ConfirmarItemCarrinho</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdicionarItemCarrinho</servlet-name>
+        <url-pattern>/AdicionarItemCarrinho</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerCarrinhoComprasServlet</servlet-name>
+        <url-pattern>/VerCarrinhoComprasServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FinalizarVendaServlet</servlet-name>
+        <url-pattern>/usuario/FinalizarVendaServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

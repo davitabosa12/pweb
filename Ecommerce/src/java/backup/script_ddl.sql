@@ -68,7 +68,8 @@ CREATE TABLE public.produto (
     id integer NOT NULL,
     descricao character varying NOT NULL,
     preco numeric NOT NULL,
-    categoria_id integer NOT NULL
+    categoria_id integer NOT NULL,
+    img character varying
 );
 
 

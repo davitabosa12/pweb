@@ -56,7 +56,7 @@ public class FuncionarioLogadoFilter implements Filter {
         HttpServletResponse res = (HttpServletResponse) response;
         HttpServletRequest req = (HttpServletRequest) request;
         HttpSession session = req.getSession(false);
-        
+        try{
         if(session != null){
             if(session.getAttribute("userType").equals("funcionario")){
                 System.out.println("ok!");
@@ -74,13 +74,18 @@ public class FuncionarioLogadoFilter implements Filter {
                 JsonObject obj = new Gson().fromJson(loginJson, JsonObject.class);
                 String login = obj.get("login").getAsString();
                 String userType = obj.get("userType").getAsString();
-                session = req.getSession();
+                session = req.getSession(true);
                 session.setAttribute("login", login);
                 session.setAttribute("userType", userType);
                 FuncionarioNegocio f = new FuncionarioNegocio();
                 request.setAttribute("funcionarioBean", f.obterFuncionario(login));
                 chain.doFilter(request, response);
             }
+        }
+        } catch(Exception e){
+            e.printStackTrace();
+            res.sendRedirect("/Ecommerce");
+            
         }
     }
 
