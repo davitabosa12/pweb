@@ -1,22 +1,22 @@
 <%-- 
-    Document   : listar
-    Created on : 30/09/2018, 11:14:58
+    Document   : mostrarVendasUsuario
+    Created on : 20/11/2018, 22:30:45
     Author     : Davi
 --%>
 
+<%@page import="modelo.venda.Venda"%>
 <%@page import="java.util.List"%>
-<%@page import="modelo.usuario.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="../layout.jsp" %>
-        <title>Listagem de Usuários</title>
+        <title>Vendas</title>
     </head>
     <body>
         <%@include file="../navbar.jsp" %>
-        <% List<Usuario> usuarios = (List<Usuario>) request.getAttribute("lista_usuarios"); %>
+        <% List<Venda> vendas = (List<Venda>) request.getAttribute("vendas"); %>
         <div class="container">
             <div class="row">
                 <div class="col s12">
@@ -28,19 +28,19 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Nome</th>
-                                <th>Login</th>
+                                <th>ID</th>
+                                <th>Total Compra</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                         <% 
-                            for(Usuario u : usuarios){ 
+                            for(Venda v : vendas){ 
                         %>
                             <tr>
-                                <td><%= u.getNome()%></td>
-                                <td><%= u.getLogin()%></td>
-                                <td><a class="btn-flat waves-effect waves-red" href="ObterUsuarioServlet?login=<%= u.getLogin()%>" >Alterar</a> &nbsp; <a class="btn-flat waves-effect waves-red" href="ExcluirUsuarioServlet?login=<%= u.getLogin()%>" >Excluir</a>&nbsp; <a class="btn-flat waves-effect waves-red" href="VendasUsuarioServlet?login=<%= u.getLogin()%>" >Vendas</a></td>
+                                <td><%= v.getId()%></td>
+                                <td>R$ <%= v.getGrandeTotal()%></td>
+                                <td><a class="btn-flat waves-effect waves-red" href="VerDetalhesVenda?venda_id=<%= v.getId()%>" >Ver detalhes</a> </td>
                             </tr>
                         <%
                             }

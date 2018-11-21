@@ -40,7 +40,7 @@
                             <tr>
                                 <td><%= u.getNome()%></td>
                                 <td><%= u.getLogin()%></td>
-                                <td><a class="btn-flat waves-effect waves-red" href="ObterUsuarioServlet?login=<%= u.getLogin()%>" >Alterar</a> &nbsp; <a class="btn-flat waves-effect waves-red" href="ExcluirUsuarioServlet?login=<%= u.getLogin()%>" >Excluir</a></td>
+                                <td><a class="btn-flat waves-effect waves-red" href="ObterUsuarioServlet?login=<%= u.getLogin()%>" >Alterar</a> &nbsp; <a class="btn-flat waves-effect waves-red" href="ExcluirUsuarioServlet?login=<%= u.getLogin()%>" >Excluir</a>&nbsp; <a class="btn-flat waves-effect waves-red" href="VendasUsuarioServlet?login=<%= u.getLogin()%>" >Vendas</a></td>
                             </tr>
                         <%
                             }

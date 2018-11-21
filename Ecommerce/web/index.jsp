@@ -14,17 +14,20 @@
         <title>Bem-vindo ao Ecommerce</title>
         <meta charset="UTF-8">
         <%@include file="WEB-INF/pages/layout.jsp" %>
+        
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/materialize.css" type="text/css" rel="stylesheet"/>
         <script type="text/javascript" src="js/materialize.js"></script>
     </head>
     <body>
+        
         <% ProdutoDAO dao = new ProdutoDAO();
             List<Produto> produtos = dao.obterVarios(9);
         %>
         <%@include file="WEB-INF/pages/navbar.jsp" %>
         <section class="container">
             <%@include file="WEB-INF/pages/message.jsp" %>
+            <%@include file="WEB-INF/pages/session_message.jsp" %>
             <h3 class="center">Bem-vindo</h3>
             <div class="row"id="produtos">
                 <% for (Produto p : produtos) {%>

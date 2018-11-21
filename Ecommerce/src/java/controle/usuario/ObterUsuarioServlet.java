@@ -41,7 +41,7 @@ public class ObterUsuarioServlet extends HttpServlet {
         UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
         Usuario usuario = usuarioNegocio.obterUsuario(login);
         request.setAttribute("usuario", usuario);
-        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/pages/usuario/alterar.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/usuario/alterar.jsp");
         rd.forward(request, response);
    
     }

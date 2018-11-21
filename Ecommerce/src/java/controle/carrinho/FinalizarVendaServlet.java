@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,7 +42,8 @@ public class FinalizarVendaServlet extends HttpServlet {
         System.out.println("controle.carrinho.FinalizarVendaServlet.service()");
         HttpSession session = request.getSession(false);
         String client_login = (String) session.getAttribute("login");
-        CarrinhoCompras cc = (CarrinhoCompras) request.getAttribute("carrinho");
+        CarrinhoCompras cc;
+        cc = CarrinhoCompras.fromCookieArray(request.getCookies());
         List<ProdutoVenda> produtos = new ArrayList();
         for(CarrinhoComprasItem item : cc.getItens()){
             produtos.add(
@@ -57,13 +59,17 @@ public class FinalizarVendaServlet extends HttpServlet {
         boolean sucesso = vendaDAO.inserirVenda(venda);
         if(sucesso){
             System.out.println("        Venda realizada com sucesso");
+            Cookie c = new Cookie("ecommerce.carrinho","");
+            c.setMaxAge(0);
+            response.addCookie(c);
             request.setAttribute("success_message", "Venda Realizada com sucesso!");
+            
         } else{
             System.out.println("        Erro ao realizar venda");
             request.setAttribute("error_message", "Erro ao realizar venda");
         }
         
-        request.getRequestDispatcher("/Ecommerce/WEB-INF/pages/compraFeita.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/compras/compraFeita.jsp").forward(request, response);
         
     }
 }

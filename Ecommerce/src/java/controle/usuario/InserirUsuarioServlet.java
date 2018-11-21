@@ -46,7 +46,7 @@ public class InserirUsuarioServlet extends HttpServlet {
             rd.forward(request, response);
         } else {
             request.setAttribute("mensagem", "Não foi possível inserir este usuário");
-            RequestDispatcher rd = request.getRequestDispatcher("novoUsuario.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/usuario/novoUsuario.jsp");
             rd.forward(request, response);
         }
     }

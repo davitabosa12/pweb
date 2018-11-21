@@ -53,6 +53,14 @@ public class Venda {
     public void setProdutos(List<ProdutoVenda> produtos) {
         this.produtos = produtos;
     }
+    
+    public double getGrandeTotal(){
+        double soma = 0;
+        for(ProdutoVenda p : produtos){
+            soma += p.getPrecoUnitario() * p.getQuantidade();
+        }
+        return soma;
+    }
 
    
     

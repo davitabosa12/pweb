@@ -47,6 +47,7 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession(true); // cria e referencia a sessão do usuário
             session.setAttribute("login", login); // coloca o atributo login na sessão do usuário
             Usuario u = usuarioNegocio.obterUsuario(login);
+            session.setAttribute("userType", "usuario");
             session.setAttribute("usuarioBean", u);
             //RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/pages/principal.jsp"); // despacha a requisição para a página main.jsp, encaminhando as instância de request e response 
             RequestDispatcher rd = request.getRequestDispatcher("index.jsp");

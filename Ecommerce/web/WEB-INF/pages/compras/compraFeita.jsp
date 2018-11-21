@@ -9,9 +9,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Compra realizada!</title>
+        <%@include file="../layout.jsp" %>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%@include file="../navbar.jsp" %>
+        <%@include file="../message.jsp" %>
+        <h1>Compra realizada!</h1>
+        <p>Obrigado por comprar com a gente!</p>
+        
     </body>
 </html>

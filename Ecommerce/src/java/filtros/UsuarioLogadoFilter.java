@@ -46,14 +46,17 @@ public class UsuarioLogadoFilter implements Filter {
         HttpServletResponse res = (HttpServletResponse) response;
         HttpServletRequest req = (HttpServletRequest) request;
         HttpSession session = req.getSession(false);
+        String userType = (String) session.getAttribute("userType");
         try{
         if(session != null){
-            if(session.getAttribute("userType") != null &&
-                    session.getAttribute("userType").equals("usuario")){
+            if(userType != null &&
+                    userType.equals("usuario")){
                 System.out.println("ok!");
+                System.out.println("Filtro ACEITA");
                 chain.doFilter(request, response);
             } else {
                  session.setAttribute("error_message", "Faça login para continuar");
+                 System.out.println("Filtro REJEITA");
                  res.sendRedirect("/Ecommerce");
             }
             
@@ -63,6 +66,7 @@ public class UsuarioLogadoFilter implements Filter {
             if(loginJson == null)
             {
                 session.setAttribute("error_message", "Faça login para continuar");
+                System.out.println("Filtro REJEITA");
                 res.sendRedirect("/Ecommerce");
                 
             }
@@ -70,10 +74,10 @@ public class UsuarioLogadoFilter implements Filter {
             else{
                 JsonObject obj = new Gson().fromJson(loginJson, JsonObject.class);
                 String login = obj.get("login").getAsString();
-                String userType = obj.get("userType").getAsString();
+                String type = obj.get("userType").getAsString();
                 session = req.getSession(true);
                 session.setAttribute("login", login);
-                session.setAttribute("userType", userType);
+                session.setAttribute("userType", type);
                 UsuarioNegocio u = new UsuarioNegocio();
                 request.setAttribute("funcionarioBean", u.obterUsuario(login));
                 chain.doFilter(request, response);

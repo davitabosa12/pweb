@@ -12,6 +12,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import modelo.usuario.Usuario;
 import modelo.usuario.UsuarioDAO;
 
@@ -47,6 +49,31 @@ public class VendaDAO {
         return venda;
     }
     
+    public List<Venda> obterVendaPorUsuario(String login){
+        UsuarioDAO usuarioDao = new UsuarioDAO();
+        List<Venda> vendas = new ArrayList();
+        try {
+            Class.forName("org.postgresql.Driver");
+            Connection connection = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
+            PreparedStatement preparedStatement = connection.prepareCall("SELECT id, cliente_login FROM venda WHERE cliente_login = ?");
+            preparedStatement.setString(1, login);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Venda venda = new Venda();
+                venda.setId(resultSet.getInt("id"));
+                venda.setUsuario(usuarioDao.obterUsuario(resultSet.getString("cliente_login")));
+                venda.setProdutos(new ProdutoVendaDAO().obterProdutoVenda(venda.getId()));                
+                vendas.add(venda);
+            }
+            resultSet.close();
+            preparedStatement.close();
+            connection.close();
+        } catch (Exception ex) {
+            return null;
+        }
+        return vendas;
+    }
+    
     public boolean inserirVenda(Venda venda){
         boolean resultado = false;
         try {
@@ -62,7 +89,7 @@ public class VendaDAO {
                 ProdutoVendaDAO produtoVendaDAO = new ProdutoVendaDAO();
                 boolean res2 = false;
                 for(ProdutoVenda pv : venda.getProdutos()){
-                    res2 = produtoVendaDAO.inserir(venda.getId(), pv.getProduto(), pv.getQuantidade(), pv.getPrecoUnitario());
+                    res2 = produtoVendaDAO.inserir(idVenda, pv.getProduto(), pv.getQuantidade(), pv.getPrecoUnitario());
                     if(!res2){
                         break;
                     }

@@ -159,6 +159,26 @@
         <servlet-name>FinalizarVendaServlet</servlet-name>
         <servlet-class>controle.carrinho.FinalizarVendaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VendasUsuarioServlet</servlet-name>
+        <servlet-class>controle.usuario.VendasUsuarioServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VerDetalhesVenda</servlet-name>
+        <servlet-class>controle.usuario.VerDetalhesVenda</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MeusDadosServlet</servlet-name>
+        <servlet-class>controle.usuario.MeusDadosServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UsuarioDashboardServlet</servlet-name>
+        <servlet-class>controle.usuario.UsuarioDashboardServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarMeusDadosServlet</servlet-name>
+        <servlet-class>controle.usuario.AlterarMeusDadosServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -185,19 +205,19 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ObterUsuarioServlet</servlet-name>
-        <url-pattern>/ObterUsuarioServlet</url-pattern>
+        <url-pattern>/funcionario/ObterUsuarioServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AlterarUsuarioServlet</servlet-name>
-        <url-pattern>/AlterarUsuarioServlet</url-pattern>
+        <url-pattern>/funcionario/AlterarUsuarioServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListarUsuarioServlet</servlet-name>
-        <url-pattern>/ListarUsuarioServlet</url-pattern>
+        <url-pattern>/funcionario/ListarUsuarioServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ExcluirUsuarioServlet</servlet-name>
-        <url-pattern>/ExcluirUsuarioServlet</url-pattern>
+        <url-pattern>/funcionario/ExcluirUsuarioServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PrincipalServlet</servlet-name>
@@ -298,6 +318,26 @@
     <servlet-mapping>
         <servlet-name>FinalizarVendaServlet</servlet-name>
         <url-pattern>/usuario/FinalizarVendaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VendasUsuarioServlet</servlet-name>
+        <url-pattern>/funcionario/VendasUsuarioServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerDetalhesVenda</servlet-name>
+        <url-pattern>/funcionario/VerDetalhesVenda</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MeusDadosServlet</servlet-name>
+        <url-pattern>/usuario/MeusDadosServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsuarioDashboardServlet</servlet-name>
+        <url-pattern>/usuario/UsuarioDashboardServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarMeusDadosServlet</servlet-name>
+        <url-pattern>/usuario/AlterarMeusDadosServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
