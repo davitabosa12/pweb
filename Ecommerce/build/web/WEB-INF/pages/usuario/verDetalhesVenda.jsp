@@ -1,6 +1,6 @@
 <%-- 
     Document   : verDetalhesVenda
-    Created on : 20/11/2018, 22:41:00
+    Created on : 20/11/2018, 23:42:26
     Author     : Davi
 --%>
 
@@ -35,7 +35,7 @@
                                 <th>Preço Praticado</th>
                                 <th>Quantidade</th>
                                 <th>Sub-total</th>
-                                <th></th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -47,7 +47,6 @@
                                 <td>R$ <%= pv.getPrecoUnitario() %></td>
                                 <td><%= pv.getQuantidade() %></td>
                                 <td>R$ <%= pv.getPrecoUnitario() * pv.getQuantidade() %></td>
-                                <td><a class="btn-flat waves-effect waves-red" href="ObterProdutoServlet?id=<%= pv.getProduto().getId()%>" >Ver Produto</a></td>
                             </tr>
                         <%
                             }

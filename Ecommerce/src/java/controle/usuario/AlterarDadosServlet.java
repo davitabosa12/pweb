@@ -8,21 +8,19 @@ package controle.usuario;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import modelo.usuario.UsuarioNegocio;
-import modelo.venda.Venda;
-import modelo.venda.VendaDAO;
 
 /**
  *
  * @author Davi
  */
-public class VendasUsuarioServlet extends HttpServlet {
+public class AlterarDadosServlet extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -33,13 +31,20 @@ public class VendasUsuarioServlet extends HttpServlet {
      */
     protected void service(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
+        HttpSession session = request.getSession(false);
+        
+        String nome = request.getParameter("name");
         String login = request.getParameter("login");
+        String senha = request.getParameter("senha");
+        UsuarioNegocio u = new UsuarioNegocio();
+        boolean sucesso = u.alterar(nome, login, senha);
+        if(sucesso){
+            request.setAttribute("success_message", "Dados alterados com sucesso!");
+        } else {
+            request.setAttribute("error_message", "Não foi possível alterar dados");
+        }
         
-        VendaDAO v = new VendaDAO();
-        List<Venda> vendas = v.obterVendaPorUsuario(login);
-        request.setAttribute("vendas", vendas);
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/usuario/minhasCompras.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("UsuarioDashboardServlet");
         rd.forward(request, response);
-        
     }
 }

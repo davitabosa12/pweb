@@ -21,8 +21,8 @@
             <%@include file="../session_message.jsp" %>
             <h4>Olá, <%= usuarioBean.getNome() %>!</h4>
             <div><a href="MeusDadosServlet">Meus Dados</a></div>
-            <div><a href="MinhasCompras">Minhas Compras</a></div>
-            <div><a href="AlterarMeusDados">Alterar meus dados</a></div>
+            <div><a href="MinhasComprasServlet">Minhas Compras</a></div>
+            <div><a href="AlterarMeusDadosServlet">Alterar meus dados</a></div>
             <div><a href="../LogoutServlet">Sair</a></div>
         </div>
         

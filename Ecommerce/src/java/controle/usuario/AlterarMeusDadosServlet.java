@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import modelo.usuario.Usuario;
+import modelo.usuario.UsuarioDAO;
 import modelo.usuario.UsuarioNegocio;
 
 /**
@@ -31,20 +33,11 @@ public class AlterarMeusDadosServlet extends HttpServlet {
      */
     protected void service(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        HttpSession session = request.getSession(false);
+        HttpSession session = request.getSession();
+        String login = (String)session.getAttribute("login");
+        Usuario u = new UsuarioDAO().obterUsuario(login);
+        request.setAttribute("usuario", u);
         
-        String nome = request.getParameter("name");
-        String login = request.getParameter("login");
-        String senha = request.getParameter("senha");
-        UsuarioNegocio u = new UsuarioNegocio();
-        boolean sucesso = u.alterar(nome, login, senha);
-        if(sucesso){
-            request.setAttribute("success_message", "Dados alterados com sucesso!");
-        } else {
-            request.setAttribute("error_message", "Não foi possível alterar dados");
-        }
-        
-        RequestDispatcher rd = request.getRequestDispatcher("UsuarioDashboardServlet");
-        rd.forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/usuario/alterarMeusDados.jsp").forward(request, response);
     }
 }

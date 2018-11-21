@@ -59,9 +59,9 @@ public class FinalizarVendaServlet extends HttpServlet {
         boolean sucesso = vendaDAO.inserirVenda(venda);
         if(sucesso){
             System.out.println("        Venda realizada com sucesso");
-            Cookie c = new Cookie("ecommerce.carrinho","");
-            c.setMaxAge(0);
-            response.addCookie(c);
+            Cookie c = findAndRemoveCookie(request.getCookies());
+            if(c != null)
+                response.addCookie(c);
             request.setAttribute("success_message", "Venda Realizada com sucesso!");
             
         } else{
@@ -71,5 +71,15 @@ public class FinalizarVendaServlet extends HttpServlet {
         
         request.getRequestDispatcher("/WEB-INF/pages/compras/compraFeita.jsp").forward(request, response);
         
+    }
+
+    private Cookie findAndRemoveCookie(Cookie[] cookies) {
+        for(Cookie c : cookies){
+            if(c.getName() == "ecommerce.carrinho"){
+                c.setMaxAge(0);
+                return c;
+            }
+        }
+        return null;
     }
 }

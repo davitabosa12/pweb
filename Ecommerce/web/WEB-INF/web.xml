@@ -179,6 +179,18 @@
         <servlet-name>AlterarMeusDadosServlet</servlet-name>
         <servlet-class>controle.usuario.AlterarMeusDadosServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MinhasComprasServlet</servlet-name>
+        <servlet-class>controle.usuario.MinhasComprasServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VerDetalhesCompraServlet</servlet-name>
+        <servlet-class>controle.usuario.VerDetalhesCompraServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarDadosServlet</servlet-name>
+        <servlet-class>controle.usuario.AlterarDadosServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -338,6 +350,18 @@
     <servlet-mapping>
         <servlet-name>AlterarMeusDadosServlet</servlet-name>
         <url-pattern>/usuario/AlterarMeusDadosServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MinhasComprasServlet</servlet-name>
+        <url-pattern>/usuario/MinhasComprasServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerDetalhesCompraServlet</servlet-name>
+        <url-pattern>/usuario/VerDetalhesCompraServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarDadosServlet</servlet-name>
+        <url-pattern>/usuario/AlterarDadosServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

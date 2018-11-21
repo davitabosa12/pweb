@@ -20,7 +20,7 @@
         <div class="container">
             <div class="row">
                 <div class="col s12">
-                    <h4>Lista de Usuários</h4>
+                    <h4>Lista de Vendas</h4>
                 </div>
             </div>
             <div class="row">

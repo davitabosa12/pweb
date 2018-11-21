@@ -14,7 +14,8 @@
     </head>
     <body>
         <%@include file="../navbar.jsp" %>
-        <% Usuario u = (Usuario) request.getAttribute("usuario"); %>
+        
+        <% Usuario usuario = (Usuario) request.getAttribute("usuario"); %>
         
         <div class="container">
             <div class="row">
@@ -25,13 +26,13 @@
             <div class="row">
                 <div class="col s8">
                     <%@include file="../message.jsp" %>
-                    <form action="AlterarMeusDadosServlet" method="post">
+                    <form action="AlterarDadosServlet" method="post">
                         <label for="name">Nome</label>
-                        <input type="text" name="name" id="name" value="<%= u.getNome()%>"/>
+                        <input type="text" name="name" id="name" value="<%= usuario.getNome()%>"/>
                         <label for="login">Login</label>
-                        <input type="text" id="login" name="login" value="<%= u.getLogin()%>"readonly="readonly"/>
+                        <input type="text" id="login" name="login" value="<%= usuario.getLogin()%>"readonly="readonly"/>
                         <label for="senha">Senha</label>
-                        <input type="password" name="senha" id="senha" value="<%= u.getSenha()%>"/>
+                        <input type="password" name="senha" id="senha" value="<%= usuario.getSenha()%>"/>
                         <input class="btn waves-button-input"type="submit" value="Alterar"/>
                     </form>
                 </div>
